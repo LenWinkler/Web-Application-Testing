@@ -7,15 +7,25 @@ const Counts = styled.div`
 `
 
 const CountDisplay = styled.div`
-    margin: 1rem;
+    margin: 4rem;
 `
 
 const CounterNum = styled.p`
-    font-size: 2rem;
+    font-size: 5rem;
 `
 
 const Button = styled.button`
+    width: 8rem;
+    height: 3rem;
+    border-radius: 5px;
+    margin: 2rem;
+    font-size: 2rem;
+    background: green;
+    color: white;
+`
 
+const NumOfXs = styled.p`
+    font-size: 2rem;
 `
 
 class Count extends React.Component {
@@ -87,18 +97,18 @@ class Count extends React.Component {
                 <Counts>
                     <CountDisplay>
                             <CounterNum>{this.state.strikes}</CounterNum>
-                            <p># of Strikes</p>
+                            <NumOfXs># of Strikes</NumOfXs>
                     </CountDisplay>
                     <CountDisplay>
                             <CounterNum>{this.state.balls}</CounterNum>
-                            <p># of Balls</p>
+                            <NumOfXs># of Balls</NumOfXs>
                     </CountDisplay>
                 </Counts>
                 <div className="buttons">
-                    <Button onClick={this.increaseStrikes}>strike</Button>
-                    <Button onClick={this.increaseBalls}>ball</Button>
-                    <Button onClick={this.foulBall}>foul</Button>
-                    <Button onClick={this.hit}>hit</Button>
+                    <Button onClick={this.increaseStrikes}>Strike</Button>
+                    <Button onClick={this.increaseBalls}>Ball</Button>
+                    <Button onClick={this.foulBall}>Foul</Button>
+                    <Button onClick={this.hit}>Hit !</Button>
                 </div>
             </div>
         )
