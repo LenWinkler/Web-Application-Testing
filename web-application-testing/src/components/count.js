@@ -40,7 +40,7 @@ class Count extends React.Component {
                     }
             })
         }
-    }
+    };
 
     increaseBalls = () => {
         const ballsOnState = this.state.balls;
@@ -55,7 +55,29 @@ class Count extends React.Component {
                     }
             })
         }
+    };
+
+    foulBall = () => {
+        const strikesOnState = this.state.strikes;
+        if (strikesOnState > 2) {
+            this.setState(() => {
+                return {strikes: strikesOnState + 1}
+            })
+        } else {
+            this.setState(() => {
+                return {strikes: strikesOnState}
+            })
+        }
     }
+
+    hit = () => {
+        this.setState({
+            strikes: 0,
+            balls: 0
+        })
+    }
+
+    
 
     
 
