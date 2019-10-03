@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Dashboard from "./dashboard";
 
 const Counts = styled.div`
     display: flex;
@@ -12,16 +13,6 @@ const CountDisplay = styled.div`
 
 const CounterNum = styled.p`
     font-size: 5rem;
-`
-
-const Button = styled.button`
-    width: 8rem;
-    height: 3rem;
-    border-radius: 5px;
-    margin: 2rem;
-    font-size: 2rem;
-    background: green;
-    color: white;
 `
 
 const NumOfXs = styled.p`
@@ -104,12 +95,7 @@ class Count extends React.Component {
                             <NumOfXs># of Balls</NumOfXs>
                     </CountDisplay>
                 </Counts>
-                <div className="buttons">
-                    <Button onClick={this.increaseStrikes}>Strike</Button>
-                    <Button onClick={this.increaseBalls}>Ball</Button>
-                    <Button onClick={this.foulBall}>Foul</Button>
-                    <Button onClick={this.hit}>Hit !</Button>
-                </div>
+                <Dashboard increaseStrikes={this.increaseStrikes} increaseBalls={this.increaseBalls} foulBall={this.foulBall} hit={this.hit}/>
             </div>
         )
     }
