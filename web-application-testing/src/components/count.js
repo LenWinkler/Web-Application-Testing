@@ -42,6 +42,21 @@ class Count extends React.Component {
         }
     }
 
+    increaseBalls = () => {
+        const ballsOnState = this.state.balls;
+        if (ballsOnState < 4) {
+            this.setState(() => {
+                return {balls: ballsOnState +1} 
+            })
+        } else {
+            this.setState(() => {
+                return {strikes: 0,
+                        balls: 0
+                    }
+            })
+        }
+    }
+
     
 
     render() {
