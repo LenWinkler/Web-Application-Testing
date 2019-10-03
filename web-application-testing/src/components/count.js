@@ -19,8 +19,8 @@ const Button = styled.button`
 `
 
 class Count extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             strikes: 0,
             balls: 0
@@ -29,7 +29,7 @@ class Count extends React.Component {
 
     increaseStrikes = () => {
         const strikesOnState = this.state.strikes;
-        if (strikesOnState < 3) {
+        if (strikesOnState < 2) {
             this.setState(() => {
                 return {strikes: strikesOnState +1} 
             })
@@ -44,7 +44,7 @@ class Count extends React.Component {
 
     increaseBalls = () => {
         const ballsOnState = this.state.balls;
-        if (ballsOnState < 4) {
+        if (ballsOnState < 3) {
             this.setState(() => {
                 return {balls: ballsOnState +1} 
             })
@@ -59,7 +59,7 @@ class Count extends React.Component {
 
     foulBall = () => {
         const strikesOnState = this.state.strikes;
-        if (strikesOnState > 2) {
+        if (strikesOnState < 2) {
             this.setState(() => {
                 return {strikes: strikesOnState + 1}
             })
@@ -86,19 +86,19 @@ class Count extends React.Component {
             <div className="count-card">
                 <Counts>
                     <CountDisplay>
-                            <CounterNum>0</CounterNum>
+                            <CounterNum>{this.state.strikes}</CounterNum>
                             <p># of Strikes</p>
                     </CountDisplay>
                     <CountDisplay>
-                            <CounterNum>0</CounterNum>
+                            <CounterNum>{this.state.balls}</CounterNum>
                             <p># of Balls</p>
                     </CountDisplay>
                 </Counts>
                 <div className="buttons">
-                    <Button>strike</Button>
-                    <Button>ball</Button>
-                    <Button>foul</Button>
-                    <Button>hit</Button>
+                    <Button onClick={this.increaseStrikes}>strike</Button>
+                    <Button onClick={this.increaseBalls}>ball</Button>
+                    <Button onClick={this.foulBall}>foul</Button>
+                    <Button onClick={this.hit}>hit</Button>
                 </div>
             </div>
         )
