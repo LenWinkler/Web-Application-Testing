@@ -19,7 +19,11 @@ const NumOfXs = styled.p`
     font-size: 2rem;
 `
 
-class Count extends React.Component {
+export const addStrike = (currentStrikes) => {
+        return currentStrikes + 1
+}
+
+export default class Display extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -32,7 +36,7 @@ class Count extends React.Component {
         const strikesOnState = this.state.strikes;
         if (strikesOnState < 2) {
             this.setState(() => {
-                return {strikes: strikesOnState +1} 
+                return {strikes: addStrike(strikesOnState)} 
             })
         } else {
             this.setState(() => {
@@ -101,4 +105,5 @@ class Count extends React.Component {
     }
 }
 
-export default Count;
+
+
